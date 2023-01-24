@@ -4,7 +4,9 @@ const express = require('express')
 const app = express()
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
+
+
 // MONGO-DB
 const cors = require('cors')
 const connectDB = require('./config/db')
@@ -155,6 +157,5 @@ function verifyToken(req, res, next) {
 
 
 app.listen(port, () => {
-
-    console.log(`El servidor funciona en el puerto ${port}`)
-})
+    console.log(`Server running on port ${port}`)
+  })
