@@ -40,14 +40,25 @@ app.get("/Obtener-Productos", async (req, res) => {
 
 })
 
+// app.post('/register', (req, res) => {
+//     const { username, email, password } = req.body;
+//     const usuario = new Usuario({ username, email, password });
+//     usuario.save((err) => {
+//         if (err) {
+//             res.status(500).send('Error al registrar al usuario');
+//         } else {
+//             res.status(200).send('Usuario registrado');
+//         }
+//     });
+// });
 app.post('/register', (req, res) => {
     const { username, email, password } = req.body;
     const usuario = new Usuario({ username, email, password });
     usuario.save((err) => {
         if (err) {
-            res.status(500).send('Error al registrar al usuario');
+            res.status(500).json({ message: 'El usuario existe' });
         } else {
-            res.status(200).send('Usuario registrado');
+            res.status(200).json({ message: 'Usuario registrado con éxito' });
         }
     });
 });
